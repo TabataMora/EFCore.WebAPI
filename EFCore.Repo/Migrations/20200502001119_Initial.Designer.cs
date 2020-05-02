@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCore.Repo.Migrations
 {
     [DbContext(typeof(HeroiContext))]
-    [Migration("20200426115926_init")]
-    partial class init
+    [Migration("20200502001119_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,7 +91,7 @@ namespace EFCore.Repo.Migrations
 
                     b.Property<int>("HeroiId");
 
-                    b.Property<int>("NomeReal");
+                    b.Property<string>("NomeReal");
 
                     b.HasKey("Id");
 
