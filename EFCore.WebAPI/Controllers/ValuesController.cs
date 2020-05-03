@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EFCore.Dominio;
 using EFCore.Repo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCore.WebAPI.Controllers
 {

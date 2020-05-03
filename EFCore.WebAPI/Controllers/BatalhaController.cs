@@ -12,21 +12,22 @@ namespace EFCore.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HeroiController : ControllerBase
+    public class BatalhaController : ControllerBase
     {
-        public readonly HeroiContext _context;
-        public HeroiController(HeroiContext context)
+        private readonly HeroiContext _context;
+
+        public BatalhaController(HeroiContext context)
         {
             _context = context;
         }
 
-        // GET: api/Heroi
+        // GET: api/Batalha
         [HttpGet]
         public ActionResult Get()
         {
             try
             {
-                return Ok(new Heroi());
+                return Ok(new Batalha());
             }
             catch (Exception ex)
             {
@@ -34,20 +35,20 @@ namespace EFCore.WebAPI.Controllers
             }
         }
 
-        // GET: api/Heroi/5
-        [HttpGet("{id}", Name = "Get")]
+        // GET: api/Batalha/5
+        [HttpGet("{id}", Name = "GetBatalha")]
         public ActionResult Get(int id)
         {
             return Ok("value");
         }
 
-        // POST: api/Heroi
+        // POST: api/Batalha
         [HttpPost]
-        public ActionResult Post(Heroi model)
+        public ActionResult Post(Batalha model)
         {
             try
             {
-                _context.Herois.Add(model);
+                _context.Batalhas.Add(model);
                 _context.SaveChanges();
 
                 return Ok("SUCESSO");
@@ -58,13 +59,13 @@ namespace EFCore.WebAPI.Controllers
             }
         }
 
-        // PUT: api/Heroi/5
+        // PUT: api/Batalha/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, Heroi model)
+        public ActionResult Put(int id, Batalha model)
         {
             try
             {
-                if (_context.Herois
+                if (_context.Batalhas
                      .AsNoTracking()
                      .FirstOrDefault(h => h.Id == id) != null)
                 {
@@ -81,6 +82,7 @@ namespace EFCore.WebAPI.Controllers
             }
         }
 
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
@@ -88,3 +90,4 @@ namespace EFCore.WebAPI.Controllers
         }
     }
 }
+
